@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.droiddaemon.aieassignment.EmployeeViewModel"
+
+            />
+
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+
+
+    >
+
+    <EditText
+        android:id="@+id/department_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={myViewModel.departmentName}"
+        android:hint="Department Name"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:id="@+id/save_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->myViewModel.saveOrUpdateDepartment()}"
+        android:layout_gravity="center_horizontal"
+        android:text="Save" />
+
+
+    <EditText
+        android:id="@+id/employee_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={myViewModel.employeeName}"
+        android:hint="Employee Name"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:id="@+id/joining_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={myViewModel.joiningDate}"
+        android:hint="Joining Date"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:id="@+id/manager_Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={myViewModel.managerId}"
+        android:hint="Manager id"
+        android:textStyle="bold"
+
+        />
+    <EditText
+        android:id="@+id/department_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={myViewModel.departmentId}"
+        android:hint="Department id"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:id="@+id/save_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->myViewModel.saveOrUpdateEmployee()}"
+        android:layout_gravity="center_horizontal"
+        android:text="Save" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/employee_recyclerView"
+        android:layout_margin="5dp"
+        />
+
+
+</LinearLayout>
+</layout>
