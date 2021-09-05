@@ -2,6 +2,7 @@ package com.droiddaemon.aieassignment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -55,13 +56,13 @@ class MainActivity : AppCompatActivity() {
         binding.employeeRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = EmployeeAdapter { ({selectedItem :Employee->listItemClicked(selectedItem)})
         binding.employeeRecyclerView.adapter = adapter
-            displayEmployees()
         }
     }
 
     private fun displayEmployees() {
 
         employeeViewModel.employee.observe(this,Observer {
+            Log.d("MYTAG",it.toString())
             adapter.setList(it)
             adapter.notifyDataSetChanged()
         })
