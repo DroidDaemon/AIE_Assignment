@@ -30,9 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         val dao = EmployeeDataBase.getInstance(application).employeeDao
-
         val repository  = EmployeeRepository(dao)
-
         val factory = ViewModelFactory(repository)
         employeeViewModel = ViewModelProvider(this,factory).get(EmployeeViewModel::class.java)
         binding.myViewModel = employeeViewModel
@@ -54,9 +52,9 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
 
         binding.employeeRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = EmployeeAdapter { ({selectedItem :Employee->listItemClicked(selectedItem)})
+        adapter = EmployeeAdapter ({selectedItem :Employee->listItemClicked(selectedItem)})
         binding.employeeRecyclerView.adapter = adapter
-        }
+        displayEmployees()
     }
 
     private fun displayEmployees() {

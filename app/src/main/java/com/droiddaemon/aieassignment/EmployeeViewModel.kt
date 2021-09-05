@@ -45,11 +45,11 @@ class EmployeeViewModel(private val repository: EmployeeRepository)  : ViewModel
 
     fun saveOrUpdateEmployee(){
 
-        val employee_name = employeeName.value!!
-        val joining_date = joiningDate.value!!
-        val manager_id = managerId.value!!
-        val department_id = departmentId.value!!
-        insert(Employee(0,employee_name,joining_date,manager_id.toInt(),department_id.toInt()))
+        val employeename = employeeName.value!!
+        val joiningdate = joiningDate.value!!
+        val managerid = managerId.value!!
+        val departmentid = departmentId.value!!
+        insert(Employee(0,employeename,joiningdate,managerid.toInt(),departmentid.toInt()))
     }
 
 

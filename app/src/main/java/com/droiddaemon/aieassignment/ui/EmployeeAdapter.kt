@@ -39,15 +39,15 @@ class EmployeeAdapter(private val clickListener:(Employee) -> Unit)
     class MyViewHolder(val binding :ListItemBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(employee : Employee,clickListener: (Employee) -> Unit){
-            binding.employeeName.text = employee.name
-            binding.joiningDate.text = employee.joiningDate
-            binding.managerId.text = employee.manger_id.toString()
-            binding.departmentId.text = employee.department_id.toString()
-
-            binding.listItemLayout.setOnClickListener {
-
-                clickListener(employee)
-            }
+            binding.employeeName.text = "Name : "+employee.name
+            binding.joiningDate.text = "JoiningDate : "+employee.joiningDate
+            binding.managerId.text = "ManagerId : "+employee.manger_id.toString()
+            binding.departmentId.text = "DepartmentId : "+employee.department_id.toString()
+//
+//            binding.listItemLayout.setOnClickListener {
+//
+//                clickListener(employee)
+//            }
 
 
         }
