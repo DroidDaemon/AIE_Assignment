@@ -24,6 +24,13 @@
 
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
     <EditText
         android:id="@+id/department_name"
         android:layout_width="match_parent"
@@ -90,6 +97,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Save" />
 
+</LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

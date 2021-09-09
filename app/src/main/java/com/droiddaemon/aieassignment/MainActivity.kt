@@ -6,13 +6,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.droiddaemon.aieassignment.data.Employee
-import com.droiddaemon.aieassignment.data.EmployeeDao
 import com.droiddaemon.aieassignment.data.EmployeeDataBase
 import com.droiddaemon.aieassignment.data.EmployeeRepository
+import com.droiddaemon.aieassignment.data.EmployeeResultData
 import com.droiddaemon.aieassignment.databinding.ActivityMainBinding
 import com.droiddaemon.aieassignment.ui.EmployeeAdapter
 
@@ -44,15 +43,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-
-
+        employeeViewModel.saveOrUpdateDepartment()
+        employeeViewModel.saveOrUpdateEmployee()
     }
 
     private fun initRecyclerView() {
 
         binding.employeeRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = EmployeeAdapter ({selectedItem :Employee->listItemClicked(selectedItem)})
+        adapter = EmployeeAdapter ({selectedItem : EmployeeResultData ->listItemClicked(selectedItem)})
         binding.employeeRecyclerView.adapter = adapter
         displayEmployees()
     }
@@ -67,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun listItemClicked(employee: Employee){
+    private fun listItemClicked(employee: EmployeeResultData){
 
     }
 }

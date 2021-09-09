@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "department_table")
 data class Department(
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     @ColumnInfo(name = "id")
     var id : Int,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "department_name")
     var name : String
 
 )

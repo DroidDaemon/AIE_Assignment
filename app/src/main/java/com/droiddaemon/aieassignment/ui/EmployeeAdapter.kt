@@ -6,22 +6,23 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.droiddaemon.aieassignment.R
 import com.droiddaemon.aieassignment.data.Employee
+import com.droiddaemon.aieassignment.data.EmployeeResultData
 import com.droiddaemon.aieassignment.databinding.ListItemBinding
 
-class EmployeeAdapter(private val clickListener:(Employee) -> Unit)
-    : RecyclerView.Adapter<EmployeeAdapter.MyViewHolder>()
-{
-    private val employeeList = ArrayList<Employee>()
+class EmployeeAdapter(private val clickListener: (EmployeeResultData) -> Unit) :
+    RecyclerView.Adapter<EmployeeAdapter.MyViewHolder>() {
+    private val employeeList = ArrayList<EmployeeResultData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding :ListItemBinding = DataBindingUtil.inflate(layoutInflater,R.layout.list_item,parent,false)
+        val binding: ListItemBinding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
         return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(employeeList[position],clickListener)
+        holder.bind(employeeList[position], clickListener)
 
     }
 
@@ -29,20 +30,19 @@ class EmployeeAdapter(private val clickListener:(Employee) -> Unit)
         return employeeList.size
     }
 
-    fun setList(employees: List<Employee>){
+    fun setList(employees: List<EmployeeResultData>) {
         employeeList.clear()
         employeeList.addAll(employees)
     }
 
 
+    class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    class MyViewHolder(val binding :ListItemBinding):RecyclerView.ViewHolder(binding.root){
-
-        fun bind(employee : Employee,clickListener: (Employee) -> Unit){
-            binding.employeeName.text = "Name : "+employee.name
-            binding.joiningDate.text = "JoiningDate : "+employee.joiningDate
-            binding.managerId.text = "ManagerId : "+employee.manger_id.toString()
-            binding.departmentId.text = "DepartmentId : "+employee.department_id.toString()
+        fun bind(employee: EmployeeResultData, clickListener: (EmployeeResultData) -> Unit) {
+            binding.employeeName.text = "Name : " + employee.name
+            binding.joiningDate.text = "JoiningDate : " + employee.joining_date
+            binding.managerId.text = "ManagerId : " + employee.manager_id.toString()
+            binding.departmentId.text = "DepartmentId : " + employee.department_name.toString()
 //
 //            binding.listItemLayout.setOnClickListener {
 //

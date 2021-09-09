@@ -10,7 +10,6 @@ import com.droiddaemon.aieassignment.data.Department
 import com.droiddaemon.aieassignment.data.Employee
 import com.droiddaemon.aieassignment.data.EmployeeRepository
 import kotlinx.coroutines.launch
-import java.util.*
 
 class EmployeeViewModel(private val repository: EmployeeRepository)  : ViewModel(), Observable {
 
@@ -45,17 +44,23 @@ class EmployeeViewModel(private val repository: EmployeeRepository)  : ViewModel
 
     fun saveOrUpdateEmployee(){
 
-        val employeename = employeeName.value!!
-        val joiningdate = joiningDate.value!!
-        val managerid = managerId.value!!
-        val departmentid = departmentId.value!!
-        insert(Employee(0,employeename,joiningdate,managerid.toInt(),departmentid.toInt()))
+//        val employeename = employeeName.value!!
+//        val joiningdate = joiningDate.value!!
+//        val managerid = managerId.value!!
+//        val departmentid = departmentId.value!!
+        insert(Employee(0,"Alisha J.","22-Feb-13",2,2))
+        insert(Employee(0,"John Mathew","13-Sep-14",0,4))
+        insert(Employee(0,"Syed Ali","26-Jun-16",2,3))
+        insert(Employee(0,"Ramesh G.","01-Nov-17",2,1))
     }
 
 
     fun saveOrUpdateDepartment(){
-        val departmentName = departmentName.value!!
-        insertDepartment(Department(0,departmentName))
+//        val departmentName = departmentName.value!!
+        insertDepartment(Department(1,"Operations"))
+        insertDepartment(Department(2,"Finance"))
+        insertDepartment(Department(3,"HR"))
+        insertDepartment(Department(4,"Managing Director"))
     }
 
     fun insert(employee: Employee) = viewModelScope.launch {
@@ -63,7 +68,7 @@ class EmployeeViewModel(private val repository: EmployeeRepository)  : ViewModel
         if(newRowId > -1){
             statusMessage.value  = Event("Employee Inserted Successfully $newRowId")
         }else{
-            statusMessage.value = Event("Error Occured")
+            statusMessage.value = Event("Error Occurred")
         }
     }
 
@@ -73,7 +78,7 @@ class EmployeeViewModel(private val repository: EmployeeRepository)  : ViewModel
         if(newRowId > -1){
             statusMessage.value  =Event("Department Inserted Successfully $newRowId")
         }else{
-            statusMessage.value = Event("Error Occured")
+            statusMessage.value = Event("Error Occurred")
         }
     }
 

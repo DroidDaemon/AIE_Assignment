@@ -1,6 +1,7 @@
 package com.droiddaemon.aieassignment.data
 
 import androidx.annotation.ColorInt
+import androidx.annotation.Nullable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -20,7 +21,7 @@ data class Employee(
     var joiningDate :String,
 
 
-
+    @Nullable
     @ColumnInfo (name = "manager_id")
     var manger_id : Int,
 
